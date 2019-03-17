@@ -4,22 +4,21 @@
 #
 Name     : R-worrms
 Version  : 0.3.2
-Release  : 8
+Release  : 9
 URL      : https://cran.r-project.org/src/contrib/worrms_0.3.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/worrms_0.3.2.tar.gz
 Summary  : World Register of Marine Species (WoRMS) Client
 Group    : Development/Tools
 License  : MIT
-Requires: R-crul
-Requires: R-data.table
-Requires: R-jsonlite
-Requires: R-tibble
-Requires: R-vcr
+Requires: R-urltools
+Requires: R-yaml
 BuildRequires : R-crul
 BuildRequires : R-data.table
 BuildRequires : R-jsonlite
 BuildRequires : R-tibble
+BuildRequires : R-urltools
 BuildRequires : R-vcr
+BuildRequires : R-yaml
 BuildRequires : buildreq-R
 
 %description
@@ -41,10 +40,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1546662120
+export SOURCE_DATE_EPOCH=1552837389
 
 %install
-export SOURCE_DATE_EPOCH=1546662120
+export SOURCE_DATE_EPOCH=1552837389
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -80,8 +79,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library worrms|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  worrms || :
 
 
 %files
@@ -111,3 +109,69 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/worrms/help/worrms.rdx
 /usr/lib64/R/library/worrms/html/00Index.html
 /usr/lib64/R/library/worrms/html/R.css
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_children.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_children_.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_children_many.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_children_marine_only_false.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_children_marine_only_true.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_children_name.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_children_offset.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_classification.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_classification_.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_classification_many.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_common_id.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_common_id_.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_common_id_many.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_distribution.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_distribution_.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_distribution_many.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_external.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_external_.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_external_fishbase.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_external_many.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_id2name.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_id2name_.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_id2name_many.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_name2id.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_name2id_.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_name2id_many.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_record.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_record_.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_record_by_external__many.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_record_by_external__tsn.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_record_by_external_fishbase.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_record_by_external_ncbi.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_record_by_external_tsn.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_record_many.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_records__many.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_records_common.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_records_common_fuzzy_false.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_records_common_fuzzy_true.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_records_common_offset.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_records_name.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_records_name_fuzzy.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_records_names.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_records_names_fuzzy.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_records_taxamatch.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_sources.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_sources__many.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_synonyms.yml
+/usr/lib64/R/library/worrms/tests/fixtures/vcr_cassettes/wm_synonyms__many.yml
+/usr/lib64/R/library/worrms/tests/test-all.R
+/usr/lib64/R/library/worrms/tests/testthat/helper-worrms.R
+/usr/lib64/R/library/worrms/tests/testthat/test-wm_children.R
+/usr/lib64/R/library/worrms/tests/testthat/test-wm_classification.R
+/usr/lib64/R/library/worrms/tests/testthat/test-wm_common_id.R
+/usr/lib64/R/library/worrms/tests/testthat/test-wm_distribution.R
+/usr/lib64/R/library/worrms/tests/testthat/test-wm_external.R
+/usr/lib64/R/library/worrms/tests/testthat/test-wm_id2name.R
+/usr/lib64/R/library/worrms/tests/testthat/test-wm_name2id.R
+/usr/lib64/R/library/worrms/tests/testthat/test-wm_record.R
+/usr/lib64/R/library/worrms/tests/testthat/test-wm_record_by_external.R
+/usr/lib64/R/library/worrms/tests/testthat/test-wm_records_common.R
+/usr/lib64/R/library/worrms/tests/testthat/test-wm_records_date.R
+/usr/lib64/R/library/worrms/tests/testthat/test-wm_records_name.R
+/usr/lib64/R/library/worrms/tests/testthat/test-wm_records_names.R
+/usr/lib64/R/library/worrms/tests/testthat/test-wm_records_taxamatch.R
+/usr/lib64/R/library/worrms/tests/testthat/test-wm_sources.R
+/usr/lib64/R/library/worrms/tests/testthat/test-wm_synonyms.R

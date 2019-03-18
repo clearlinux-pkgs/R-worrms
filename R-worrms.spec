@@ -4,18 +4,24 @@
 #
 Name     : R-worrms
 Version  : 0.3.2
-Release  : 10
+Release  : 11
 URL      : https://cran.r-project.org/src/contrib/worrms_0.3.2.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/worrms_0.3.2.tar.gz
 Summary  : World Register of Marine Species (WoRMS) Client
 Group    : Development/Tools
 License  : MIT
-Requires: R-urltools
-Requires: R-yaml
+Requires: R-curl
+Requires: R-httpcode
+Requires: R-httr
+Requires: R-triebeard
 BuildRequires : R-crul
+BuildRequires : R-curl
 BuildRequires : R-data.table
+BuildRequires : R-httpcode
+BuildRequires : R-httr
 BuildRequires : R-jsonlite
 BuildRequires : R-tibble
+BuildRequires : R-triebeard
 BuildRequires : R-urltools
 BuildRequires : R-vcr
 BuildRequires : R-yaml
@@ -40,10 +46,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552837389
+export SOURCE_DATE_EPOCH=1552918540
 
 %install
-export SOURCE_DATE_EPOCH=1552837389
+export SOURCE_DATE_EPOCH=1552918540
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "

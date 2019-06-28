@@ -1,10 +1,12 @@
-0.3.2
+0.4.0
+R-base64enc
 R-crul
 R-curl
 R-data.table
 R-httpcode
 R-httr
 R-jsonlite
+R-lazyeval
 R-tibble
 R-triebeard
 R-urltools

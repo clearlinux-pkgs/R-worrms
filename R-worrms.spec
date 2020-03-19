@@ -4,7 +4,7 @@
 #
 Name     : R-worrms
 Version  : 0.4.0
-Release  : 17
+Release  : 18
 URL      : https://cran.r-project.org/src/contrib/worrms_0.4.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/worrms_0.4.0.tar.gz
 Summary  : World Register of Marine Species (WoRMS) Client

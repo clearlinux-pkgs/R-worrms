@@ -4,24 +4,20 @@
 #
 Name     : R-worrms
 Version  : 0.4.0
-Release  : 18
+Release  : 19
 URL      : https://cran.r-project.org/src/contrib/worrms_0.4.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/worrms_0.4.0.tar.gz
 Summary  : World Register of Marine Species (WoRMS) Client
 Group    : Development/Tools
 License  : MIT
-Requires: R-base64enc
 Requires: R-crul
 Requires: R-data.table
 Requires: R-jsonlite
-Requires: R-lazyeval
 Requires: R-tibble
 Requires: R-vcr
-BuildRequires : R-base64enc
 BuildRequires : R-crul
 BuildRequires : R-data.table
 BuildRequires : R-jsonlite
-BuildRequires : R-lazyeval
 BuildRequires : R-tibble
 BuildRequires : R-vcr
 BuildRequires : buildreq-R
@@ -39,21 +35,22 @@ worrms
 
 %prep
 %setup -q -c -n worrms
+cd %{_builddir}/worrms
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1561736606
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1589774916
 
 %install
-export SOURCE_DATE_EPOCH=1561736606
+export SOURCE_DATE_EPOCH=1589774916
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -79,7 +76,7 @@ R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} 
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
